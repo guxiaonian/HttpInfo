@@ -1,0 +1,39 @@
+// Copyright (c) 1999-2004 Brian Wellington (bwelling@xbill.org)
+
+package fairy.easy.httpmodel.server;
+
+/**
+ * Mail Group Record  - specifies a mailbox which is a member of a mail group.
+ *
+ * @author Brian Wellington
+ * @see <a href="https://tools.ietf.org/html/rfc883">RFC 883: Domain Names - Implementation and Specification</a>
+ */
+public class MGRecord extends SingleNameBase {
+
+private static final long serialVersionUID = -3980055550863644582L;
+
+MGRecord() {}
+
+@Override
+Record
+getObject() {
+	return new MGRecord();
+}
+
+/** 
+ * Creates a new MG Record with the given data
+ * @param mailbox The mailbox that is a member of the group specified by the
+ * domain.
+ */
+public
+MGRecord(Name name, int dclass, long ttl, Name mailbox) {
+	super(name, Type.MG, dclass, ttl, mailbox, "mailbox");
+}
+
+/** Gets the mailbox in the mail group specified by the domain */
+public Name
+getMailbox() {
+	return getSingleName();
+}
+
+}

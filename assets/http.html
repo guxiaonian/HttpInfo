@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>网络诊断</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./jqm/jquery.mobile-1.3.1.css" />
+    <link rel="stylesheet" href="./jqm/custom.css" />
+    <script src="./jqm/jquery-1.9.1.min.js"></script>
+    <script src="./jqm/jquery.mobile-1.3.1.min.js"></script>
+</head>
+<body>
+<div data-role="page" data-theme="c">
+    <div data-role="content">
+        <div id="report_analysis" class="layout_cus" style="margin-top: -11px;">
+            <div class="list_cus">
+                <div class="h4_cus">网址</div>
+                <div class="p_cus">手机发起 HTTP 请求的网址</div>
+            </div>
+            <div class="list_cus">
+                <div class="h4_cus">用时</div>
+                <div class="p_cus">手机发起 HTTP 请求到返回数据接收完毕总共用时，最多只接收 10KB，单位为毫秒</div>
+            </div>
+            <div class="list_cus">
+                <div class="h4_cus">速度</div>
+                <div class="p_cus">手机发起 HTTP 请求到返回数据接收完毕的速度，单位为 kbps</div>
+            </div>
+            <div class="list_cus">
+                <div class="h4_cus">下载大小</div>
+                <div class="p_cus">手机发起 HTTP 请求，接收返回数据的大小，最多只接收 10KB，单位为 KB</div>
+            </div>
+            <div class="list_cus">
+                <div class="h4_cus">服务器</div>
+                <div class="p_cus">手机发起 HTTP 请求，返回数据 Header 里的 Server 字段</div>
+            </div>
+            <div class="list_cus">
+                <div class="h4_cus">校验服务器</div>
+                <div class="p_cus">服务器发起 HTTP 请求，返回数据 Header 里的 Server 字段，如果“校验服务器”与“服务器”字段不一致，则存在代理访问，网页可能被劫持</div>
+            </div>
+            <div class="list_cus">
+                <div class="h4_cus">跳转</div>
+                <div class="p_cus">手机发起 HTTP 请求，该请求是否被重定向</div>
+            </div>
+            <div class="list_cus">
+                <div class="h4_cus">返回Header</div>
+                <div class="p_cus">手机发起 HTTP 请求，返回数据的 Header，如果存在重定向，则会逐个显示所有请求返回数据的 Header</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

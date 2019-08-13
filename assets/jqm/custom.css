@@ -1,0 +1,29 @@
+
+.list_cus {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.p_cus {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #909090;
+}
+.h4_cus {
+    font-size: 17px;
+    font-weight: bold;
+}
+.hr_cus {
+    height: 1px;
+    width: 100%;
+    margin-top: 5px;
+    background-color: #e4e4e4;
+}
+.layout_cus {
+    margin-left:8px;margin-right: 8px;padding-top: 4px;
+}
+.p_cus_h{
+    font-size: 14px;
+    margin-top: 5px;
+    color: #525252;
+    font-weight: bold;
+}
