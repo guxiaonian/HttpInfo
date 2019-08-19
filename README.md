@@ -54,7 +54,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 # 网络信息
 
-## [Index信息](./assets/index.html)
+## Index信息
 
 >域名以及请求时间
 
@@ -78,7 +78,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [Net信息](./assets/net.html)
+## Net信息
 
 >手机网络信息
 
@@ -136,7 +136,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [Ping信息](./assets/ping.html)
+## Ping信息
 
 >相关ping信息
 
@@ -180,7 +180,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [Http信息](./assets/http.html)
+## Http信息
 
 >http请求信息
 
@@ -280,7 +280,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [MtuScan信息](./assets/mtu.html)
+## MtuScan信息
 
 >传输单位的计算
 
@@ -306,7 +306,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [PortScan信息](./assets/portscan.html)
+## PortScan信息
 
 >端口扫描
 
@@ -356,7 +356,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [TraceRoute信息](./assets/traceroute.html)
+## TraceRoute信息
 
 >服务TraceRoute
 
@@ -396,7 +396,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [NsLookup信息](./assets/nslookup.html)
+## NsLookup信息
 
 >服务NsLookup
 
