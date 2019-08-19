@@ -248,7 +248,7 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 
 ```
 
-## [Host信息](./assets/host.html)
+## Host信息
 
 >本地host信息
 
