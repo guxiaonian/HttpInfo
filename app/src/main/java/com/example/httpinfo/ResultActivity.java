@@ -67,7 +67,7 @@ public class ResultActivity extends AppCompatActivity {
                     public void onFinish(JSONObject result) {
                         clpbLoading.hide();
                         try {
-                            Toast.makeText(getApplicationContext(), "评测成功 总耗时" + result.getString("totalTime") + "ms", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "评测成功 总耗时" + result.getString("totalTime"), Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
