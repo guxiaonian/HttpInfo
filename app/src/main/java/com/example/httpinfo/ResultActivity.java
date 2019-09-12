@@ -48,8 +48,8 @@ public class ResultActivity extends AppCompatActivity {
                 .setModelLoader(new OkHttpUrlLoader())
 //                .setModelLoader(new HttpNormalUrlLoader())
                 .setFactory()
-                .addType(HttpType.TRACE_ROUTE)
-//                .addAll()
+//                .addType(HttpType.TRACE_ROUTE)
+                .addAll()
                 .build()
                 .startAsync(getIntent().getStringExtra(MainActivity.HTTP_ADDRESS), new HttpListener() {
                     @Override
