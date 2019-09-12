@@ -28,7 +28,7 @@ import okhttp3.ResponseBody;
 public class OkHttpUrlLoader implements ModelLoader<String> {
 
     private HttpModel httpModel = null;
-    private int timeout = 5 * 1000;
+    private int timeout = 5*1000;
     private ResponseBody responseBody;
     private volatile Call call;
     private Call.Factory client;

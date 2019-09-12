@@ -32,7 +32,7 @@ public class ResultAdapter extends BaseRecyclerAdapter<ResultBean> {
             switch (letter) {
                 case '{':
                 case '[':
-                    json.append("\n" + indentString + letter + "\n");
+                    json.append(indentString + letter + "\n");
                     indentString = indentString + "\t";
                     json.append(indentString);
                     break;

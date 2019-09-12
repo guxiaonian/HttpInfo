@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.example.httpinfo.adapter.ResultAdapter;
@@ -24,7 +25,8 @@ public class ResultActivity extends AppCompatActivity {
 
     private ContentLoadingProgressBar clpbLoading;
     private RecyclerView rvResult;
-    private int index=0;
+    private boolean isFinish = false;
+//    private int index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,25 +48,28 @@ public class ResultActivity extends AppCompatActivity {
                 .setModelLoader(new OkHttpUrlLoader())
 //                .setModelLoader(new HttpNormalUrlLoader())
                 .setFactory()
-//                .addType(HttpType.HOST)
-                .addAll()
+                .addType(HttpType.TRACE_ROUTE)
+//                .addAll()
                 .build()
                 .startAsync(getIntent().getStringExtra(MainActivity.HTTP_ADDRESS), new HttpListener() {
                     @Override
                     public void onSuccess(HttpType httpType, JSONObject result) {
-                        ++index;
-                        clpbLoading.setProgress((int) (100f/HttpModelHelper.getInstance().getHttpTypeSize()*index));
+//                        ++index;
+//                        clpbLoading.setProgress((int) (100f / HttpModelHelper.getInstance().getHttpTypeSize() * index));
+                        Toast.makeText(getApplicationContext(), httpType.getName() + " 评测成功", Toast.LENGTH_SHORT).show();
                         resultAdapter.insertData(new ResultBean(httpType.getName(), result.toString()));
                     }
 
                     @Override
                     public void onFail(String data) {
+                        isFinish = true;
                         Toast.makeText(getApplicationContext(), data, Toast.LENGTH_SHORT).show();
 
                     }
 
                     @Override
                     public void onFinish(JSONObject result) {
+                        isFinish = true;
                         clpbLoading.hide();
                         try {
                             Toast.makeText(getApplicationContext(), "评测成功 总耗时" + result.getString("totalTime"), Toast.LENGTH_SHORT).show();
@@ -73,5 +78,19 @@ public class ResultActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            if (isFinish) {
+                return super.onKeyDown(keyCode, event);
+            } else {
+                Toast.makeText(getApplicationContext(), "客观稍等哦～～马上测试完成", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

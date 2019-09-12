@@ -9,7 +9,10 @@
 [![GitHub forks](https://img.shields.io/github/forks/guxiaonian/HttpInfo.svg)](https://github.com/guxiaonian/HttpInfo/network)
 [![GitHub stars](https://img.shields.io/github/stars/guxiaonian/HttpInfo.svg)](https://github.com/guxiaonian/HttpInfo/stargazers)
 [![GitHub license](https://img.shields.io/github/license/guxiaonian/HttpInfo.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Travis CI](https://travis-ci.org/guxiaonian/HttpInfo.svg?branch=master)](https://travis-ci.org/guxiaonian/HttpInfo)
+
+## APP体验
+
+![](.src/download.png)
 
 </div>
 <br>
@@ -543,5 +546,4 @@ implementation 'fairy.easy:httpmodel:{latest-version}'
 # 注意事项
 
 * 如果要使用第三方网络库或自己的封装库可以继承`ModelLoader`来实现。demo中已经写入了OkHttp的库`OkHttpUrlLoader`,使用的时候直接`setModelLoader(new OkHttpUrlLoader())`即可。
-* 下载体验。`src`文件下有下载二维码，`app/release`下也有app体验。
 * `src`文件下有完整的JSON数据格式，方便查看。
