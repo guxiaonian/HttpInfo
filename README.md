@@ -12,7 +12,7 @@
 
 ## APP体验
 
-![](.src/download.png)
+![](./src/download.png)
 
 </div>
 <br>
