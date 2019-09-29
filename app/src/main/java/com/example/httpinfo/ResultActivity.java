@@ -34,6 +34,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         setTitle("评测结果");
         clpbLoading = findViewById(R.id.result_activity_pb);
+        clpbLoading.bringToFront();
         rvResult = findViewById(R.id.result_activity_rv);
         rvResult.setHasFixedSize(true);
         ResultAdapter resultAdapter = new ResultAdapter(getApplicationContext(), R.layout.item_activity_result_rv);

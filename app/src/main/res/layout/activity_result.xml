@@ -18,12 +18,12 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/result_activity_rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_activity_pb"
+        app:layout_constraintTop_toBottomOf="parent"
 
         />
 </android.support.constraint.ConstraintLayout>
