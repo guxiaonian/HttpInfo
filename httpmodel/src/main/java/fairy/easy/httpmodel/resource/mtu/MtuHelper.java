@@ -17,7 +17,7 @@ public class MtuHelper {
     public static void getMtuParam() throws Exception {
         long startTime = LogTime.getLogTime();
         MtuScan mtuScan = new MtuScan(Base.getUrlHost());
-        List<Integer> mtuList = mtuScan.start();
+        List<Integer> mtuList = mtuScan.startReturnValue();
         MtuBean mtuBean = new MtuBean();
         if (mtuList.size() == 0) {
             mtuBean.setStatus(BaseData.HTTP_ERROR);

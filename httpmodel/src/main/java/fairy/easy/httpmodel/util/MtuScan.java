@@ -8,6 +8,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class MtuScan {
     private int size;
@@ -25,6 +30,7 @@ public class MtuScan {
         this.cancelMtuScan = true;
     }
 
+    @Deprecated
     public List<Integer> start() {
         List<Integer> mtuList = new ArrayList<>();
         int[] arrayOfInt = {1500, 1492, 1472, 1468, 1430, 1400, 576};
@@ -51,6 +57,31 @@ public class MtuScan {
         return mtuList;
     }
 
+
+    public List<Integer> startReturnValue() {
+        int[] value={1500, 1492, 1472, 1468, 1430, 1400, 576};
+        List<Integer> list = new ArrayList<>();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(7);
+        try {
+            CompletionService<Integer> completionService = new ExecutorCompletionService<>(executorService);
+            List<Future<Integer>> futureList = new ArrayList<>();
+            for (int i:value) {
+                futureList.add(completionService.submit(new Task(i,host)));
+            }
+            for (int i = 0; i < value.length; i++) {
+                Integer result = completionService.take().get();
+                list.add(result);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+        return list;
+    }
+
+    @Deprecated
     private boolean checkMtuFromPing() {
         String param = ping(createSimplePingCommand());
         if (TextUtils.isEmpty(param)) {
@@ -66,12 +97,14 @@ public class MtuScan {
         return true;
     }
 
+    @Deprecated
     private String createSimplePingCommand() {
         Object[] arrayOfObject = new Object[3];
         arrayOfObject[0] = this.size;
         arrayOfObject[1] = this.host;
         return String.format("/system/bin/ping -M do -c 1 -s %d %s", arrayOfObject);
     }
+
 
     private String ping(String command) {
         Process process = null;
