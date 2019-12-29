@@ -54,7 +54,7 @@ public class TraceRoute {
         String str = "";
         BufferedReader reader = null;
         try {
-            process = Runtime.getRuntime().exec("ping -c 1 " + ping.getHost());
+            process = Runtime.getRuntime().exec("/system/bin/ping -c 1 -w 1 " + ping.getHost());
             reader = new BufferedReader(new InputStreamReader(
                     process.getInputStream()));
             String line;
@@ -91,7 +91,7 @@ public class TraceRoute {
         try {
             while (!finish && trace.getHop() < 30) {
                 StringBuilder str = new StringBuilder();
-                String command = "ping -c 1 -t " + trace.getHop() + " "
+                String command = "/system/bin/ping -c 1 -w 1 -t " + trace.getHop() + " "
                         + trace.getHost();
 
                 process = Runtime.getRuntime().exec(command);

@@ -45,7 +45,7 @@ public class ResultActivity extends AppCompatActivity {
 
         HttpModelHelper.getInstance()
                 .init(getApplicationContext())
-                .setChina(false)
+                .setChina(true)
                 .setModelLoader(new OkHttpUrlLoader())
 //                .setModelLoader(new HttpNormalUrlLoader())
                 .setFactory()

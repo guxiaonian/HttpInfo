@@ -55,7 +55,7 @@ public class Task implements Callable<Integer> {
         Object[] arrayOfObject = new Object[3];
         arrayOfObject[0] = size;
         arrayOfObject[1] = host;
-        return String.format("/system/bin/ping -M do -c 1 -w 1 -s %d %s", arrayOfObject);
+        return String.format("/system/bin/ping -c 1 -w 1 -s %d %s", arrayOfObject);
     }
 
     private String ping(String command) {

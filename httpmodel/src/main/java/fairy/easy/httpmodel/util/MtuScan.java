@@ -102,7 +102,7 @@ public class MtuScan {
         Object[] arrayOfObject = new Object[3];
         arrayOfObject[0] = this.size;
         arrayOfObject[1] = this.host;
-        return String.format("/system/bin/ping -M do -c 1 -s %d %s", arrayOfObject);
+        return String.format("/system/bin/ping -c 1 -w 1 -s %d %s", arrayOfObject);
     }
 
 
