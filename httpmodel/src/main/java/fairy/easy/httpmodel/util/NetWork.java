@@ -1,5 +1,6 @@
 package fairy.easy.httpmodel.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -12,7 +13,7 @@ public class NetWork {
             if (mgr == null) {
                 return false;
             }
-            @SuppressWarnings("deprecation") NetworkInfo[] info = mgr.getAllNetworkInfo();
+            @SuppressLint("MissingPermission") @SuppressWarnings("deprecation") NetworkInfo[] info = mgr.getAllNetworkInfo();
             if (info != null) {
                 for (NetworkInfo anInfo : info) {
                     if (anInfo.getState() == NetworkInfo.State.CONNECTED) {

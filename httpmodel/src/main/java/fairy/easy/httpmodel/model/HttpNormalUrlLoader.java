@@ -1,6 +1,5 @@
 package fairy.easy.httpmodel.model;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.io.IOException;
@@ -37,7 +36,7 @@ public class HttpNormalUrlLoader implements ModelLoader<String> {
             new DefaultHttpUrlConnectionFactory();
 
     @Override
-    public void loadData(@NonNull DataCallback<? super String> callback) {
+    public void loadData( DataCallback<? super String> callback) {
         if (httpModel == null || timeout < 1 || connectionFactory == null) {
             HttpLog.e("Failed to load data");
             callback.onLoadFailed(new IllegalArgumentException("Failed to load data"));
@@ -163,7 +162,6 @@ public class HttpNormalUrlLoader implements ModelLoader<String> {
     }
 
 
-    @NonNull
     @Override
     public Class<String> getDataClass() {
         return String.class;

@@ -1,7 +1,5 @@
 package fairy.easy.httpmodel.util;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +24,7 @@ public class Output {
         modelLoader.setHttpModel(new HttpModel(BaseData.BASE_URL + BaseData.OUTPUT_IP_URL, RequestMethod.GET, null));
         modelLoader.loadData(new ModelLoader.DataCallback<String>() {
             @Override
-            public void onDataReady(@Nullable String data) {
+            public void onDataReady( String data) {
                 HttpLog.i("outputIp success:" + data);
                 try {
                     JSONObject jsonObject = new JSONObject(data);
@@ -37,7 +35,7 @@ public class Output {
             }
 
             @Override
-            public void onLoadFailed(@NonNull Exception e) {
+            public void onLoadFailed( Exception e) {
                 HttpLog.e("outputIp fail:" + e.toString());
                 outPutListener.onFail(e);
             }
@@ -58,7 +56,7 @@ public class Output {
         modelLoader.setHttpModel(new HttpModel(BaseData.BASE_URL + BaseData.OUTPUT_IP_COUNTRY_URL, RequestMethod.POST, postParam));
         modelLoader.loadData(new ModelLoader.DataCallback<String>() {
             @Override
-            public void onDataReady(@Nullable String data) {
+            public void onDataReady( String data) {
                 HttpLog.i("outputIp info success:" + data);
                 try {
                     JSONObject jsonObject = new JSONObject(data);
@@ -69,7 +67,7 @@ public class Output {
             }
 
             @Override
-            public void onLoadFailed(@NonNull Exception e) {
+            public void onLoadFailed( Exception e) {
                 HttpLog.e("outputIp info fail:" + e.toString());
                 outPutListener.onFail(e);
             }

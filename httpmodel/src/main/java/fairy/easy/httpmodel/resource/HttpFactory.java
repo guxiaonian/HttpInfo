@@ -1,7 +1,6 @@
 package fairy.easy.httpmodel.resource;
 
 
-import android.support.annotation.NonNull;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -132,7 +131,7 @@ public class HttpFactory implements Factory {
     }
 
 
-    public HttpFactory addType(@NonNull HttpType httpType) {
+    public HttpFactory addType( HttpType httpType) {
         httpTypes.add(httpType);
         return this;
     }

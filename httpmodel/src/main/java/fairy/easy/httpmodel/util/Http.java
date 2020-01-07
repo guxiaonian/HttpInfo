@@ -1,8 +1,6 @@
 package fairy.easy.httpmodel.util;
 
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.json.JSONException;
@@ -172,7 +170,7 @@ public class Http {
         modelLoader.setHttpModel(new HttpModel(BaseData.BASE_URL + BaseData.RESPONSE_SERVER_URL, RequestMethod.POST, postParam));
         modelLoader.loadData(new ModelLoader.DataCallback<String>() {
             @Override
-            public void onDataReady(@Nullable String data) {
+            public void onDataReady( String data) {
                 HttpLog.i("ResponseServer info success:" + data);
                 try {
                     JSONObject jsonObject = new JSONObject(data);
@@ -183,7 +181,7 @@ public class Http {
             }
 
             @Override
-            public void onLoadFailed(@NonNull Exception e) {
+            public void onLoadFailed( Exception e) {
                 HttpLog.e("ResponseServer info fail:" + e.toString());
             }
         });

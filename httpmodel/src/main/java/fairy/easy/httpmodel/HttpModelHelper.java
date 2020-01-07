@@ -3,9 +3,6 @@ package fairy.easy.httpmodel;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.AnyThread;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
 
 import java.util.UUID;
 
@@ -40,7 +37,7 @@ public class HttpModelHelper {
         return HttpModelLoader.INSTANCE;
     }
 
-    public HttpModelHelper init(@NonNull Context context) {
+    public HttpModelHelper init(Context context) {
         this.mContext = context.getApplicationContext();
         return this;
     }
@@ -63,7 +60,7 @@ public class HttpModelHelper {
         return modelLoader;
     }
 
-    public HttpModelHelper setModelLoader(@NonNull ModelLoader modelLoader) {
+    public HttpModelHelper setModelLoader(ModelLoader modelLoader) {
         this.modelLoader = modelLoader;
         return this;
     }
@@ -77,7 +74,6 @@ public class HttpModelHelper {
         return mAddress;
     }
 
-    @MainThread
     public HttpListener getHttpListener() {
         return httpListener;
     }
@@ -86,8 +82,7 @@ public class HttpModelHelper {
         return initTime;
     }
 
-    @AnyThread
-    public void startAsync(@NonNull final String address, @NonNull HttpListener httpListener) {
+    public void startAsync(final String address, HttpListener httpListener) {
         Preconditions.checkNotNull(httpListener, "HttpListener must not be null");
         HttpLog.i("Welcome to use HttpModel");
         initTime = LogTime.getLogTime();
@@ -152,7 +147,7 @@ public class HttpModelHelper {
         return httpFactory;
     }
 
-    public HttpFactory setFactory(@NonNull HttpFactory httpFactory) {
+    public HttpFactory setFactory(HttpFactory httpFactory) {
         this.httpFactory = httpFactory;
         return httpFactory;
     }

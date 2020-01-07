@@ -1,8 +1,6 @@
 package fairy.easy.httpmodel.model;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import java.net.MalformedURLException;
@@ -15,19 +13,14 @@ import fairy.easy.httpmodel.util.Preconditions;
 public class HttpModel implements Key {
     private static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%;$";
     private final Headers headers;
-    @Nullable
     private final URL url;
     private final RequestMethod requestMethod;
     private final PostParam postParam;
 
-    @Nullable
     private final String stringUrl;
 
-    @Nullable
     private String safeStringUrl;
-    @Nullable
     private URL safeUrl;
-    @Nullable
     private volatile byte[] cacheKeyBytes;
 
     private int hashCode;
@@ -107,7 +100,7 @@ public class HttpModel implements Key {
     }
 
     @Override
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+    public void updateDiskCacheKey( MessageDigest messageDigest) {
         messageDigest.update(getCacheKeyBytes());
     }
 

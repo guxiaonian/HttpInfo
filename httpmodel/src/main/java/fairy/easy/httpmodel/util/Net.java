@@ -9,9 +9,6 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.telephony.CellInfo;
 import android.telephony.CellInfoCdma;
 import android.telephony.CellInfoGsm;
@@ -228,13 +225,13 @@ public class Net {
         modelLoader.setHttpModel(new HttpModel(BaseData.OUTPUT_DNS_URL, RequestMethod.GET, null));
         modelLoader.loadData(new ModelLoader.DataCallback<String>() {
             @Override
-            public void onDataReady(@Nullable String data) {
+            public void onDataReady( String data) {
                 HttpLog.i("outputDns html info success:" + data);
                 String url = data.substring(data.indexOf("src=") + 4, data.lastIndexOf("frameborder")).replaceAll("'", "").replaceAll(" ", "");
                 modelLoader.setHttpModel(new HttpModel(url, RequestMethod.GET, null));
                 modelLoader.loadData(new ModelLoader.DataCallback<String>() {
                     @Override
-                    public void onDataReady(@Nullable String data) {
+                    public void onDataReady( String data) {
                         HttpLog.i("outputDns info success:" + data);
                         String dataIp = data.substring(data.indexOf("您的IP地址信息") + 10);
                         String dataAddress = dataIp.substring(0, dataIp.indexOf("<br>"));
@@ -252,14 +249,14 @@ public class Net {
                     }
 
                     @Override
-                    public void onLoadFailed(@NonNull Exception e) {
+                    public void onLoadFailed( Exception e) {
                         HttpLog.e("outputDns info fail:" + e.toString());
                     }
                 });
             }
 
             @Override
-            public void onLoadFailed(@NonNull Exception e) {
+            public void onLoadFailed( Exception e) {
                 HttpLog.e("outputDns html info fail:" + e.toString());
             }
         });
@@ -285,9 +282,6 @@ public class Net {
             TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             List<CellInfo> cellInfoList;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    return;
-                }
                 if (tm == null) {
                     return;
                 }

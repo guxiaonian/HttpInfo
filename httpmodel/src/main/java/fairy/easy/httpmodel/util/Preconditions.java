@@ -1,7 +1,5 @@
 package fairy.easy.httpmodel.util;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import java.util.Collection;
@@ -15,47 +13,45 @@ public final class Preconditions {
         // Utility class.
     }
 
-    public static void checkArgument(boolean expression, @NonNull String message) {
+    public static void checkArgument(boolean expression, String message) {
         if (!expression) {
             throw new IllegalArgumentException(message);
         }
     }
 
-    @NonNull
-    public static <T> T checkNotNull(@Nullable T arg) {
+    public static <T> T checkNotNull(T arg) {
         return checkNotNull(arg, "Argument must not be null");
     }
 
-    @NonNull
-    public static <T> T checkNotNull(@Nullable T arg, @NonNull String message) {
+
+    public static <T> T checkNotNull(T arg, String message) {
         if (arg == null) {
             throw new NullPointerException(message);
         }
         return arg;
     }
 
-    @NonNull
-    public static String checkNotEmpty(@Nullable String string) {
+    public static String checkNotEmpty(String string) {
         if (TextUtils.isEmpty(string)) {
             throw new IllegalArgumentException("Must not be null or empty");
         }
         return string;
     }
 
-    @NonNull
-    public static <T extends Collection<Y>, Y> T checkNotEmpty(@NonNull T collection) {
+
+    public static <T extends Collection<Y>, Y> T checkNotEmpty(T collection) {
         if (collection.isEmpty()) {
             throw new IllegalArgumentException("Must not be empty.");
         }
         return collection;
     }
 
-    public static boolean checkNotEmptyBoolean(@Nullable String string) {
+    public static boolean checkNotEmptyBoolean(String string) {
         return !TextUtils.isEmpty(string);
     }
 
-    @NonNull
-    public static String checkNotEmptyOfDefault(@Nullable String string) {
+
+    public static String checkNotEmptyOfDefault(String string) {
         if (TextUtils.isEmpty(string)) {
             return "";
         }

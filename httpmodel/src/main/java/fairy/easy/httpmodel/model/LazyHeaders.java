@@ -1,8 +1,5 @@
 package fairy.easy.httpmodel.model;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -45,8 +42,7 @@ public final class LazyHeaders implements Headers {
         return combinedHeaders;
     }
 
-    @NonNull
-    private String buildHeaderValue(@NonNull List<LazyHeaderFactory> factories) {
+    private String buildHeaderValue(List<LazyHeaderFactory> factories) {
         StringBuilder sb = new StringBuilder();
         int size = factories.size();
         for (int i = 0; i < size; i++) {
@@ -103,12 +99,12 @@ public final class LazyHeaders implements Headers {
         private Map<String, List<LazyHeaderFactory>> headers = DEFAULT_HEADERS;
         private boolean isUserAgentDefault = true;
 
-        public Builder addHeader(@NonNull String key, @NonNull String value) {
+        public Builder addHeader(String key, String value) {
             return addHeader(key, new StringHeaderFactory(value));
         }
 
 
-        public Builder addHeader(@NonNull String key, @NonNull LazyHeaderFactory factory) {
+        public Builder addHeader(String key, LazyHeaderFactory factory) {
             if (isUserAgentDefault && USER_AGENT_HEADER.equalsIgnoreCase(key)) {
                 return setHeader(key, factory);
             }
@@ -120,11 +116,11 @@ public final class LazyHeaders implements Headers {
 
 
         @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
-        public Builder setHeader(@NonNull String key, @Nullable String value) {
+        public Builder setHeader(String key, String value) {
             return setHeader(key, value == null ? null : new StringHeaderFactory(value));
         }
 
-        public Builder setHeader(@NonNull String key, @Nullable LazyHeaderFactory factory) {
+        public Builder setHeader(String key, LazyHeaderFactory factory) {
             copyIfNecessary();
             if (factory == null) {
                 headers.remove(key);
@@ -172,7 +168,6 @@ public final class LazyHeaders implements Headers {
             return result;
         }
 
-        @VisibleForTesting
         static String getSanitizedUserAgent() {
             String defaultUserAgent = System.getProperty("http.agent");
             if (TextUtils.isEmpty(defaultUserAgent)) {
@@ -195,10 +190,9 @@ public final class LazyHeaders implements Headers {
 
     static final class StringHeaderFactory implements LazyHeaderFactory {
 
-        @NonNull
         private final String value;
 
-        StringHeaderFactory(@NonNull String value) {
+        StringHeaderFactory(String value) {
             this.value = value;
         }
 
