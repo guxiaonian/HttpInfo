@@ -32,7 +32,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        setTitle(R.string.result_data);
+        setTitle(getString(R.string.result_data));
         clpbLoading = findViewById(R.id.result_activity_pb);
         clpbLoading.bringToFront();
         rvResult = findViewById(R.id.result_activity_rv);
@@ -57,7 +57,7 @@ public class ResultActivity extends AppCompatActivity {
                     public void onSuccess(HttpType httpType, JSONObject result) {
 //                        ++index;
 //                        clpbLoading.setProgress((int) (100f / HttpModelHelper.getInstance().getHttpTypeSize() * index));
-                        Toast.makeText(getApplicationContext(), httpType.getName() + R.string.result_success, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), httpType.getName() + getString(R.string.result_success), Toast.LENGTH_SHORT).show();
                         resultAdapter.insertData(new ResultBean(httpType.getName(), result.toString()));
                     }
 
@@ -73,7 +73,7 @@ public class ResultActivity extends AppCompatActivity {
                         isFinish = true;
                         clpbLoading.hide();
                         try {
-                            Toast.makeText(getApplicationContext(), R.string.result_success_time + result.getString("totalTime"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), getString(R.string.result_success_time) + result.getString("totalTime"), Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -88,7 +88,7 @@ public class ResultActivity extends AppCompatActivity {
             if (isFinish) {
                 return super.onKeyDown(keyCode, event);
             } else {
-                Toast.makeText(getApplicationContext(), R.string.result_wait, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.result_wait), Toast.LENGTH_SHORT).show();
                 return true;
             }
         }
