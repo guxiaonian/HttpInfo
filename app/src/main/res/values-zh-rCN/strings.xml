@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">网络诊断</string>
+    <string name="main_net">网络诊断</string>
+    <string name="main_input">请输入网址</string>
+    <string name="main_start">开始诊断</string>
+    <string name="result_data">诊断结果</string>
+    <string name="result_wait">客官稍等哦～～马上测试完成</string>
+    <string name="result_success">诊断成功</string>
+    <string name="result_success_time">评测成功，总耗时</string>
+    <string name="main_language">中文</string>
+</resources>

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="#ffffff"
         android:gravity="top"
-        android:hint="请输入网址"
+        android:hint="@string/main_input"
         android:inputType="textUri"
         android:minHeight="170dp"
         android:padding="10dp"
@@ -26,12 +26,23 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <CheckBox
+        android:id="@+id/main_activity_start_rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/main_language"
+        app:layout_constraintBottom_toTopOf="@+id/main_activity_start_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_et_input" />
+
     <Button
         android:id="@+id/main_activity_start_btn"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:background="@drawable/main_activity_start_btn"
-        android:text="开始诊断"
+        android:text="@string/main_start"
         android:textColor="#ffffff"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

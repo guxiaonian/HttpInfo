@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">HttpInfo</string>
+    <string name="app_name">Net Diagnosis</string>
+    <string name="main_net">Net Diagnosis</string>
+    <string name="main_input">Please enter the URL</string>
+    <string name="main_start">Start Diagnosis</string>
+    <string name="result_data">Diagnostic Result</string>
+    <string name="result_wait">Wait a minute~~The test will be completed immediately</string>
+    <string name="result_success">Diagnostic Success</string>
+    <string name="result_success_time">Successful evaluation, total time-consuming</string>
+    <string name="main_language">Chinese</string>
 </resources>
