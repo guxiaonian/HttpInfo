@@ -40,4 +40,4 @@ version|update content|updated
 
 * There is a complete JSON data format under the `src` file for easy viewing.
 
-## [Reward(Develop HttpDns)](./reward.md)
+## [Reward](./reward.md)
