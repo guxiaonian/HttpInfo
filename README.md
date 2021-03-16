@@ -40,7 +40,7 @@ version|update content|updated
 
 * There is a complete JSON data format under the `src` file for easy viewing.
 
-# ***
+# Display
 
-![](./param.gif){:height="50%" width="50%"}
+![](./param.gif)
 
