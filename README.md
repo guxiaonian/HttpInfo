@@ -39,3 +39,8 @@ version|update content|updated
 # Precautions
 
 * There is a complete JSON data format under the `src` file for easy viewing.
+
+# ***
+
+![](./param.gif){:height="50%" width="50%"}
+
